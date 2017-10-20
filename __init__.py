@@ -144,16 +144,27 @@ class SelectionPanel(bpy.types.Panel):
         row.alignment = 'EXPAND'
         row.operator("view3d.select_border", text = "Box", icon = 'BORDERMOVE')
         row.operator("view3d.select_circle", text = "Circle", icon = 'FORCE_FORCE')
-        row = layout.row()
-       
-
-        layout = self.layout
-        layout.label("Selection Tools")    
-        row = layout.row(align=True)
         
-        row.alignment = 'EXPAND' 
-        row.operator("mesh.select_all", text= "De/Select all")
-        row.operator("mesh.select_nth", text= "Checker Deselect")                   
+        row = layout.row()       
+        layout = self.layout
+        layout.label("Select by[Object Mode]")
+           
+        row = layout.row(align=True)        
+        row.alignment = 'EXPAND'
+        row.operator("object.select_by_type", text="Type")
+        row.operator("object.select_grouped", text="Grouped")
+        
+        row = layout.row(align=True)        
+        row.alignment = 'EXPAND'
+        row.operator("object.select_linked", text="Linked")
+        
+        row = layout.row()       
+        layout = self.layout
+        layout.label("Select by[Edit Mode]")
+        
+        row = layout.row(align=True)        
+        row.alignment = 'EXPAND'
+        row.operator("mesh.select_similar", text="Similar")                   
         
 
        
