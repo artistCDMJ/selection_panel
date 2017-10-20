@@ -132,7 +132,7 @@ class SelectionPanel(bpy.types.Panel):
         row = layout.row(align=True)
         #row.alignment = 'EXPAND'
         row.operator("mesh.region_to_loop", text = "Border", icon = 'SNAP_FACE')
-        row.operator("mesh.select_linked", text = "Object", icon = 'MESH_CUBE') 
+        row.operator("mesh.select_linked", text = "Linked", icon = 'MESH_CUBE') 
         row.operator("mesh.pivot_set", text = "Pivot", icon = 'LAYER_ACTIVE')
  
         
@@ -164,7 +164,27 @@ class SelectionPanel(bpy.types.Panel):
         
         row = layout.row(align=True)        
         row.alignment = 'EXPAND'
-        row.operator("mesh.select_similar", text="Similar")                   
+        row.operator("mesh.select_similar", text="Similar")
+        row.operator("mesh.loop_to_region", text="Loop")
+        row.operator("mesh.select_mirror", text= "Mirror")
+        row = layout.row(align=True)        
+        row.alignment = 'EXPAND'
+        row.operator("mesh.loop_multi_select", text="Ring")
+        row.operator("mesh.shortest_path_select", text="Short Path")
+        row.operator("mesh.select_axis", text="Side")               
+        
+        row = layout.row(align=True)        
+        row.alignment = 'EXPAND'
+        row.operator("mesh.select_non_manifold", text="Non-Manifold")
+        row.operator("mesh.select_loose", text="Loose")
+        row.operator("mesh.select_interior_faces", text="Interior Face")
+        row.operator("mesh.select_face_by_sides", text="Face by Side")
+        
+        row=layout.row(align=True)
+        row.alignment = 'EXPAND'
+        row.operator("mesh.faces_select_linked_flat", text = "Linked Flat")
+        row.operator("mesh.select_nth", text="Checker")
+        row.operator("mesh.select_random", text= "Random")
         
 
        
@@ -181,4 +201,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
