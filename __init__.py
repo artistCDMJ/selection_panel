@@ -28,7 +28,7 @@ bl_info = {"name": "Selection Tab",
            "location": "Toolbar > Misc Tab > Selection",
            "description": "Selection tools and methods",
            "warning": "WIP",
-           "wiki_url": "",
+           "wiki_url": "https://github.com/artistCDMJ/selection_panel/wiki/Selection-Panel-Adddon",
            "category": "Mesh"}
 
 
@@ -171,20 +171,25 @@ class SelectionPanel(bpy.types.Panel):
         row.alignment = 'EXPAND'
         row.operator("mesh.loop_multi_select", text="Ring")
         row.operator("mesh.shortest_path_select", text="Short Path")
-        row.operator("mesh.select_axis", text="Side")               
-        
-        row = layout.row(align=True)        
-        row.alignment = 'EXPAND'
-        row.operator("mesh.select_non_manifold", text="Non-Manifold")
-        row.operator("mesh.select_loose", text="Loose")
-        row.operator("mesh.select_interior_faces", text="Interior Face")
-        row.operator("mesh.select_face_by_sides", text="Face by Side")
-        
+        row.operator("mesh.select_axis", text="Side")
         row=layout.row(align=True)
         row.alignment = 'EXPAND'
         row.operator("mesh.faces_select_linked_flat", text = "Linked Flat")
         row.operator("mesh.select_nth", text="Checker")
-        row.operator("mesh.select_random", text= "Random")
+        row.operator("mesh.select_random", text= "Random")               
+        
+        row = layout.row()        
+        #row.alignment = 'EXPAND'
+        row.operator("mesh.select_non_manifold", text="Non-Manifold")
+        row = layout.row()
+        row.operator("mesh.select_loose", text="Loose")
+        row = layout.row()
+        row.operator("mesh.select_interior_faces", text="Interior Face")
+        row = layout.row()
+        row.operator("mesh.select_face_by_sides", text="By Number of Sides")
+        row = layout.row()
+        
+        
         
 
        
@@ -201,3 +206,4 @@ def unregister():
 
 if __name__ == "__main__":
     register()
+
